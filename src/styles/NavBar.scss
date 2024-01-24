@@ -1,0 +1,68 @@
+@use './partials/variables' as *;
+@use './partials/mixins' as *;
+@use './partials/fonts' as *;
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 16px 16px;
+    &__logo-div {
+        text-align: center;
+        width: 100%;
+        padding: 16px 0;
+    }
+    &__logo{
+        max-height: 25px;
+        max-width: 120px;
+    }
+    &__search-form {
+        border: 1px solid $Mercury;
+        min-width: 85%;
+        background-color: $Alabaster;
+        height: 40px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        &-img {
+            margin: 0 0 0 10px;
+        }
+        &-input {
+            background-color: transparent;
+            border: none;
+            height: 40px;
+            min-width: 85%;
+            margin-left: 5px;
+            font-size: 18px;
+        }
+        &-input:focus{
+            outline: none;
+        }
+    }
+    // profile image for the navbar
+    &__profile-img {
+        border-radius: 50%;
+        height: 2.65rem;
+        width: 2.65rem;
+        object-fit: cover;
+        object-position: 30% 90%;
+    }
+    // cta button wrapper 
+    &__btn-wrapper {
+        width: 100%;
+        padding: 16px 0;
+    }
+    // cta button
+    &__btn {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        @include cta;
+        &-text {
+            font-family: 'Avenir-Bold', 'Avenir-Pro-Bold';
+            font-weight: 700;
+            padding: 0 152px;
+        }
+    }
+}
+

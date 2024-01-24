@@ -1,0 +1,15 @@
+@use './variables' as *;
+
+
+// cta button style
+@mixin cta {
+    height: 40px;
+    width: fit-content;
+    border-radius: 4px;
+    color: $White;
+    background-color: $BrainFlix-Blue;
+    border: none;
+    &:hover {
+        background-color: $BrainFlix-DarkBlue;
+    }
+}
