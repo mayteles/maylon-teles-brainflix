@@ -15,7 +15,7 @@ function NavBar() {
           <img src={searchLogo}  className='navbar__search-form-img' width="16" height="16" alt="search icon"/>
           <input className="navbar__search-form-input" type="text" id="searchInput" name="searchInput" placeholder="Search"/>
       </form>
-      <div>
+      <div className='navbar__profile-wrapper'>
         <img src={profile} alt='Profile' className='navbar__profile-img'/>
       </div>
       <form className='navbar__btn-wrapper'>

@@ -5,12 +5,23 @@
 .navbar {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     padding: 0 16px 16px;
+    @include tablet {
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        padding: 0 24px 24px;
+    }
     &__logo-div {
-        text-align: center;
+        align-items: center;
         width: 100%;
         padding: 16px 0;
+        display: flex;
+        justify-content: center;
+        @include tablet {
+            padding: 24px 24px 24px 0;
+            width: 40%;
+            justify-content: flex-start;
+        }
     }
     &__logo{
         max-height: 25px;
@@ -18,12 +29,17 @@
     }
     &__search-form {
         border: 1px solid $Mercury;
-        min-width: 85%;
+        width: 82%;
         background-color: $Alabaster;
-        height: 40px;
+        height: 36px;
         border-radius: 4px;
         display: flex;
         align-items: center;
+        @include tablet {
+            margin: 16px 0;
+            width: 220px;
+            height: 40px;
+        }
         &-img {
             margin: 0 0 0 10px;
         }
@@ -39,6 +55,19 @@
             outline: none;
         }
     }
+    &__search-form:hover{
+        border: 1px solid $BrainFlix-Blue;
+    }
+    // wrapper fot profile 
+    &__profile-wrapper {
+        margin: 0 0 0 15px;
+        @include tablet {
+            padding: 16px 0;
+            align-self: flex-end;
+            order: 1;
+            margin: 0;
+        }
+    }
     // profile image for the navbar
     &__profile-img {
         border-radius: 50%;
@@ -51,18 +80,27 @@
     &__btn-wrapper {
         width: 100%;
         padding: 16px 0;
+        @include tablet {
+            width: 150px;
+        }
     }
     // cta button
     &__btn {
-        width: fit-content;
         display: flex;
         align-items: center;
         @include cta;
+        @include tablet {
+            @include cta-width;
+        }
         &-text {
             font-family: 'Avenir-Bold', 'Avenir-Pro-Bold';
             font-weight: 700;
-            padding: 0 152px;
-        }
+            padding: 0 33.4vw;
+            box-sizing: border-box;
+            @include tablet {
+                padding: 0;
+            }
+        } 
     }
 }
 

@@ -13,3 +13,23 @@
         background-color: $BrainFlix-DarkBlue;
     }
 }
+
+// Desktop/Tablet width for cta button
+@mixin cta-width {
+    width: 150px;
+    padding: 0 32px;
+}
+
+// Tablet breakpoint
+@mixin tablet {
+    @media screen and (min-width: $tablet-breakpoint) {
+        @content;
+    }
+}
+
+// Desktop breakpoint
+@mixin desktop {
+    @media screen and (min-width: $desktop-breakpoint) {
+        @content;
+    }
+}
