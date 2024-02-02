@@ -1,0 +1,45 @@
+@use './partials/variables' as *;
+@use './partials/mixins' as *;
+@use './partials/fonts' as *;
+
+.video__item {
+    &-details {
+        padding: 0 16px;
+    }
+    &-title {
+        font-size: 33px;
+        width: 100%;
+        font-family: 'Avenir-Demi', 'Avenir-Pro-Demi','Helvetica Neue';
+    }
+    &-info-container {
+        width: 150px; 
+        margin-bottom: 20px; 
+        text-align: left;
+    }
+    &-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 20px 0 0 0;
+        // name of the channel
+        &-channel {
+            font-weight: 700;
+        }
+        &-views, &-likes{
+            margin-left: 5px;
+            color: $Silver;
+        }
+        &-timestamp {
+            color: $Silver;
+        }
+    }
+    &-description {
+        font-size: 13px;
+        line-height: 18px;
+    }
+}
+
+// hr style inside of video__item-details
+.hr {
+    border: 1px solid $Mercury;
+}

@@ -10,30 +10,34 @@ const VideoItem = ({ onVideoSelect }) => {
   const video = videosData[0];
 
   return (
-    <section className="video-item" onClick={() => onVideoSelect(video)}>
-        <video controls width="425" height="245" poster={video.image}>
+    <section className="video__item" onClick={() => onVideoSelect(video)}>
+        <video controls width="430" height="242" poster={video.image}>
             <source src={video.video}></source>
             Your Browser does not support the video tag.
         </video>
-        <div className="video-details">
-            <h3 className="video-title">{video.title}</h3>
-            <hr/>
-            <p className="video-info">
-            <span className="video-channel">By {video.channel}</span> {' '}
-            <span className="video-timestamp">
-                {new Date(video.timestamp).toLocaleDateString()}
-            </span>{' '}
-            <div>
-                <img src={eye} alt="Views"/>
-                <span className="video-views">{video.views}</span> {' '}
-            </div>
-            <div>
-                <img src={likes} alt="likes"/>
-                <span className="video-likes">{video.likes}</span>
-            </div>
+        <div className="video__item-details">
+            <h3 className="video__item-title">{video.title}</h3>
+            <hr className='hr'/>
+            <p className="video__item-info">
+                <div className='video__item-info-container'>
+                    <span className="video__item-info-channel">By {video.channel}</span>
+                </div>
+                <div className='video__item-info-container'>
+                    <img src={eye} alt="Views"/>
+                    <span className="video__item-info-views">{video.views}</span>
+                </div>
+                <div className='video__item-info-container'>
+                    <span className="video__item-info-timestamp">
+                            {new Date(video.timestamp).toLocaleDateString()}
+                    </span>
+                </div>
+                <div className='video__item-info-container'>
+                    <img src={likes} alt="likes"/>
+                    <span className="video__item-info-likes">{video.likes}</span>
+                </div>
             </p>
-            <hr/>
-            <p className="video-description">{video.description}</p>
+            <hr className='hr'/>
+            <p className="video__item-description">{video.description}</p>
         </div>
         {/* sub-comment section */}
         <section>
