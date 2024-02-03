@@ -3,8 +3,16 @@ import { Fragment } from 'react';
 import NavBar from './components/header/NavBar.js';
 import VideoItem from './components/main/MainVideo.js';
 import VideoList from './components/main/VideoList.js';
+import React, { useState } from 'react';
 
-function App() {
+const App = () => {
+
+const [selectedVideo, setSelectedVideo] = useState(null);
+
+const handleVideoSelect = (video) => {
+  setSelectedVideo(video);
+};
+
   return (
     <Fragment>
       <header>
@@ -12,7 +20,9 @@ function App() {
       </header>
       <main>
         <VideoItem/>
-        <VideoList/>
+        <VideoList onVideoSelect={handleVideoSelect}> 
+          {selectedVideo && <VideoItem video={selectedVideo} />}
+        </VideoList>
       </main>
     </Fragment>
   );
