@@ -43,3 +43,69 @@
 .hr {
     border: 1px solid $Mercury;
 }
+
+// sub comment section design implementation
+.comment {
+    padding: 0 16px;
+    &__form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        &-content {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+        }
+    }
+    &__profile {
+        border-radius: 50%;
+        height: 2.65rem;
+        width: 2.65rem;
+        object-fit: cover;
+        object-position: 30% 90%;
+        &-wrapper {
+            display: flex;
+            justify-content: left;
+            margin: 30px 10px 0 0;
+        }
+    }
+    &__heading {
+        width: 100%;
+        margin: 0;
+        padding: 4px 0;
+        color: $Silver;
+        font-family: 'Avenir';
+    }
+    &__textarea {
+        background-color: $Alabaster;
+        padding: 20px;
+        border-radius: 4px;
+        width: 87%;
+        border: 2px solid $Mercury;
+        overflow: auto;
+        word-wrap: break-word;
+    }
+    &__btn {
+        @include cta;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 16px 0;
+        padding: 8px;
+        box-sizing: border-box;
+        &-text {
+            font-weight: 700;
+            padding: 0 110px;
+            font-size: 16px;
+            line-height: 25px;
+            text-align: center;
+            letter-spacing: 0.2px;
+            color: $White;
+        }
+        &-imgwrapper {
+            height: 25px;
+            width: 25px;
+        }
+    }
+} 
