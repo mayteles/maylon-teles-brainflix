@@ -13,6 +13,7 @@
     &__wrapper {
         display: flex;
         align-items: center;
+        padding: 0 0 16px 0;
     }
     &__img-wrapper {
         width: 150px;
@@ -33,6 +34,7 @@
         height: 100px;
         &-heading {
             margin-top: 0;
+            width: 30%;
         }
         &-a, span {
             text-decoration: none;

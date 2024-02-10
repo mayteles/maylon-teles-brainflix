@@ -12,10 +12,12 @@ const VideoItem = ({ onVideoSelect }) => {
 
   return (
     <section className="video__item" onClick={() => onVideoSelect(video)}>
-        <video controls width="430" height="242" poster={video.image}>
-            <source src={video.video}></source>
-            Your Browser does not support the video tag.
-        </video>
+        <div className="video__item-media" >
+            <video controls width="430" height="242" poster={video.image}>
+                <source src={video.video}></source>
+                Your Browser does not support the video tag.
+            </video>
+        </div>    
         <div className="video__item-details">
             <h3 className="video__item-title">{video.title}</h3>
             <hr className='hr'/>
@@ -48,32 +50,58 @@ const VideoItem = ({ onVideoSelect }) => {
                     <div className='comment__profile-wrapper'>
                         <img src={profile} alt='Profile' className='comment__profile'/>
                     </div>
-                    <div className='comment__area'>
+                    <div className='comment__encasing'>
                         <h4 className='comment__heading'>JOIN THE CONVERSATION</h4>
-                        <textarea rows="7" cols="10" name="comment" className='comment__textarea'>
-                            Add a new comment
-                        </textarea>
-                        <button type='button' className='comment__btn'>
-                            <span className='comment__btn-imgwrapper'>
-                                <img src={commentLogo} alt='comment'/>
-                            </span>
-                            <span className='comment__btn-text'>COMMENT</span>
-                        </button>
+                        <div className='comment__area'>
+                            <textarea name="comment" className='comment__textarea'>
+                                Add a new comment
+                            </textarea>
+                            <button type='button' className='comment__btn'>
+                                <span className='comment__btn-imgwrapper'>
+                                    <img src={commentLogo} alt='comment'/>
+                                </span>
+                                <span className='comment__btn-text'>COMMENT</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </form>
             <hr className='hr'/>
 
-            <h4>{video.comments[0].name}</h4>
-            <p>{video.comments[0].comment}</p>
+            <div className='comment__block'>
+                <div className='comment__profile-wrapper'>
+                    <div className='comment__profile'></div>
+                </div>
+                <div className='comment__content'>
+                    <h4>{video.comments[0].name}</h4>
+                    <p>{video.comments[0].comment}</p>
+                </div>
+            </div>
+
             <hr className='hr'/>
 
-            <h4>{video.comments[1].name}</h4>
-            <p>{video.comments[1].comment}</p>
+            <div className='comment__block'>
+                <div className='comment__profile-wrapper'>
+                    <div className='comment__profile'></div>
+                </div>
+                <div className='comment__content'>
+                    <h4>{video.comments[1].name}</h4>
+                    <p>{video.comments[1].comment}</p>
+                </div>
+            </div>
+
             <hr className='hr'/>
 
-            <h4>{video.comments[2].name}</h4>
-            <p>{video.comments[2].comment}</p>
+            <div className='comment__block'>
+                <div className='comment__profile-wrapper'>
+                    <div className='comment__profile'></div>
+                </div>
+                <div className='comment__content'>
+                    <h4>{video.comments[2].name}</h4>
+                    <p>{video.comments[2].comment}</p>
+                </div>
+            </div>
+            
             <hr className='hr'/>
         </section>
     </section>
