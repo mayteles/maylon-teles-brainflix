@@ -4,6 +4,7 @@ import NavBar from './components/header/NavBar.js';
 import VideoItem from './components/main/MainVideo.js';
 import VideoList from './components/main/VideoList.js';
 import React, { useState } from 'react';
+import MediaPlayer from './components/main/MediaPlayer.js';
 
 const App = () => {
 
@@ -19,10 +20,13 @@ const handleVideoSelect = (video) => {
         <NavBar/>
       </header>
       <main>
-        <VideoItem/>
-        <VideoList onVideoSelect={handleVideoSelect}> 
-          {selectedVideo && <VideoItem video={selectedVideo} />}
-        </VideoList>
+        <MediaPlayer/>
+        <div className='desktop'>
+          <VideoItem/>
+          <VideoList className='desktop__videolist' onVideoSelect={handleVideoSelect}> 
+            {selectedVideo && <VideoItem video={selectedVideo} />}
+          </VideoList>
+        </div>
       </main>
     </Fragment>
   );
