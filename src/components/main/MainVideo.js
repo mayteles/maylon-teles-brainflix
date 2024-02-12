@@ -12,12 +12,7 @@ const VideoItem = ({ onVideoSelect }) => {
 
   return (
     <section className="video__item" onClick={() => onVideoSelect(video)}>
-        <div className="video__item-media" >
-            <video controls width="430" height="242" poster={video.image}>
-                <source src={video.video}></source>
-                Your Browser does not support the video tag.
-            </video>
-        </div>    
+        
         <div className="video__item-details">
             <h3 className="video__item-title">{video.title}</h3>
             <hr className='hr'/>
@@ -31,7 +26,7 @@ const VideoItem = ({ onVideoSelect }) => {
                 </div>
                 <div className='video__item-info-container'>
                     <span className="video__item-info-timestamp">
-                            {new Date(video.timestamp).toLocaleDateString()}
+                        {new Date(video.timestamp).toLocaleDateString()}
                     </span>
                 </div>
                 <div className='video__item-info-container'>
