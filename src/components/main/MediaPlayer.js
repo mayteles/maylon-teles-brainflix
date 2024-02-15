@@ -1,19 +1,18 @@
-import React, { Fragment } from 'react'
-import videosData from '../../data/video-details.json';
+import React, { Fragment } from 'react';
 
-const MediaPlayer = ({ onVideoSelect }) => {
-    const video = videosData[0];
+const MediaPlayer = ({ selectedVideo }) => {
+    if (!selectedVideo) return null;
 
     return (
         <Fragment>
-            <div className="video__item-media" >
-                <video controls width="430" height="242" poster={video.image}>
-                    <source src={video.video}></source>
+            <div className="video__item-media">
+                <video controls width="430" height="242" poster={selectedVideo.image}>
+                    <source src={selectedVideo.video} type="video/mp4" />
                     Your Browser does not support the video tag.
                 </video>
-            </div>    
+            </div>
         </Fragment>
-    )
-}
+    );
+};
 
-export default MediaPlayer
+export default MediaPlayer;

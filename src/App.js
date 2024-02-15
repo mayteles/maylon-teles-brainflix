@@ -5,14 +5,15 @@ import VideoItem from './components/main/MainVideo.js';
 import VideoList from './components/main/VideoList.js';
 import React, { useState } from 'react';
 import MediaPlayer from './components/main/MediaPlayer.js';
+import videosData from './data/video-details.json';
+import videoListData from './data/videos.json';
 
 const App = () => {
+  const [selectedVideo, setSelectedVideo] = useState(videosData[0]);
 
-const [selectedVideo, setSelectedVideo] = useState(null);
-
-const handleVideoSelect = (video) => {
-  setSelectedVideo(video);
-};
+  const handleVideoSelect = (video) => {
+    setSelectedVideo(video);
+  };
 
   return (
     <Fragment>
@@ -20,12 +21,12 @@ const handleVideoSelect = (video) => {
         <NavBar/>
       </header>
       <main>
-        <MediaPlayer/>
+        <MediaPlayer selectedVideo={selectedVideo}/>
         <div className='desktop'>
-          <VideoItem/>
-          <VideoList className='desktop__videolist' onVideoSelect={handleVideoSelect}> 
-            {selectedVideo && <VideoItem video={selectedVideo} />}
-          </VideoList>
+          <VideoItem selectedVideo={selectedVideo} />
+          <VideoList className='desktop__videolist' videos={videoListData}
+            selectedVideo={selectedVideo}
+            onVideoSelect={handleVideoSelect}/> 
         </div>
       </main>
     </Fragment>
