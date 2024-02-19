@@ -19,9 +19,11 @@ function Upload() {
                 <br/>
                 <input className='upload__form-input upload__form-input--large' placeholder='add a description to your video'/>
                 <br/>
-                <button className='upload__form-btn'>PUBLISH</button>
-                <br/>
-                <button className='upload__form-cancel'>CANCEL</button>
+                <div className='upload__form-btns-container'>
+                  <button className='upload__form-btn'>PUBLISH</button>
+                  <br/>
+                  <button className='upload__form-cancel'>CANCEL</button>
+                </div>
             </form>
         </div>
     </section>

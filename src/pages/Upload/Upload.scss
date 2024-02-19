@@ -5,12 +5,25 @@
 .upload {
     margin: 0 16px;
     font-family: 'Avenir';
+    @include tablet {
+        margin: 0 24px;
+    }
     &__heading {
         font-size: 24px;
+        @include tablet {
+            font-size: 33px;
+            margin-bottom: 0;
+            padding-bottom: 27.390px;
+            border-bottom: 1px solid $Mercury;
+        }
     }
     &__heading2 {
         color: $Silver;
-        font-size: 12px;
+        font-size: 13px;
+        @include tablet {
+            font-size: 14px;
+            margin-top: 24px;
+        }
     }
     &__thumbnail {
         &-video {
@@ -19,10 +32,17 @@
            width: 100%;
            height: auto;
            max-height: 242px;
+           @include tablet {
+            width: 45%;
+            max-width: 100%;
+           }
         }
     }
     &__form {
         padding: 16px 0;
+        @include tablet {
+            padding: 24px 0;
+        }
         &-subtitle {
             color: $Silver;
             font-size: 12px;
@@ -38,9 +58,22 @@
             word-wrap: break-word;
             padding: 15px 10px;
             box-sizing: border-box;
+            @include tablet {
+                margin-bottom: 24px;
+            }
             // to have a padding high than the first input
             &--large {
                 padding-bottom: 100px;
+            }
+        }
+        // only for tablet/desktop layout
+        &-btns-container {
+            @include tablet {
+                display: flex;
+                flex-direction: row-reverse;
+                padding-top: 24px;
+                border-top: 1px solid $Mercury;
+                justify-content: flex-start;
             }
         }
         &-btn {
@@ -61,15 +94,24 @@
                 top: 50%;
                 transform: translateY(-50%);
             }
+            @include tablet {
+                margin: 0;
+                width: auto;
+                padding: 8px 50px;
+                margin-left: 16px;
+            }
         }
         &-cancel {
             width: 100%;
-            margin-bottom: 16px;
             font-weight: bold;
             color: $BrainFlix-Blue;
             height: 40px;
             border: none;
             background-color: transparent;
+            @include tablet {
+                width: auto;
+                padding: 8px 50px;
+            }
         }
     }
 }
