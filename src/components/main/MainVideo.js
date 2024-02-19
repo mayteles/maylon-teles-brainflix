@@ -6,7 +6,7 @@ import commentLogo from '../../assets/Icons/add_comment.svg';
 import profile from '../../assets/Images/Mohan-muruge.jpg';
 
 
-const VideoItem = ({ selectedVideo}) => {
+const MainVideo = ({ selectedVideo}) => {
     if (!selectedVideo || !videosData || videosData.length === 0) return null;
     
     const video = selectedVideo;
@@ -78,4 +78,4 @@ const VideoItem = ({ selectedVideo}) => {
     );
 };
 
-export default VideoItem;
+export default MainVideo;
