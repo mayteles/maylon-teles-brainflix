@@ -8,6 +8,10 @@
     @include tablet {
         margin: 0 24px;
     }
+    @include desktop {
+        margin: 0 120px;
+        padding: 0 96px;
+    }
     &__heading {
         font-size: 24px;
         @include tablet {
@@ -24,8 +28,22 @@
             font-size: 14px;
             margin-top: 24px;
         }
+        @include desktop {
+            margin-bottom: 4px;
+        }
     }
     &__thumbnail {
+        @include desktop {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        // div to wrap video and heading
+        &-box {
+            @include desktop { 
+                margin-right: 24px;
+            }
+        }
         &-video {
            background-color: $Mercury; 
            border-radius: 4px;
@@ -36,6 +54,9 @@
             width: 45%;
             max-width: 100%;
            }
+           @include desktop {
+            width: 100%;
+           }
         }
     }
     &__form {
@@ -43,14 +64,28 @@
         @include tablet {
             padding: 24px 0;
         }
+        @include desktop {
+            align-items: flex-start;
+            display: flex;
+            justify-content: space-between;
+        }
+        // for desktop layout
+        &-wrapper {
+            @include desktop {
+                flex: 1;
+            }
+        }
         &-subtitle {
             color: $Silver;
             font-size: 12px;
             font-weight: bold;
             padding: 16px 0;
+            @include desktop {
+                font-size: 14px;
+                padding: 0;
+            }
         }
         &-input {
-            margin-bottom: 16px;
             width: 100%;
             background-color: $Alabaster;
             border-radius: 4px;
@@ -61,9 +96,15 @@
             @include tablet {
                 margin-bottom: 24px;
             }
+            @include desktop {
+                padding-right: 500px; 
+            }
             // to have a padding high than the first input
             &--large {
                 padding-bottom: 100px;
+                @include desktop {
+                    padding-bottom: 118px;
+                }
             }
         }
         // only for tablet/desktop layout
@@ -79,7 +120,7 @@
         &-btn {
             @include cta;
             width: 100%;
-            margin: 16px 0;
+            margin-bottom: 16px;
             font-weight: bold;
             padding-left: 5px;
             position: relative; 
