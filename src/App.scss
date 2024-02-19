@@ -6,6 +6,9 @@
 @use './styles/partials/mixins' as *;
 @use './styles/partials/fonts' as *;
 
+// upload page
+@use './pages/Upload/Upload.scss' as *;
+
 .desktop {
     @include desktop {
         display: flex;
@@ -13,3 +16,4 @@
         margin: 0 10%;
     }
 }
+

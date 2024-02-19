@@ -1,35 +1,24 @@
 import './App.scss';
-import { Fragment } from 'react';
 import NavBar from './components/header/NavBar.js';
-import VideoItem from './components/main/MainVideo.js';
-import VideoList from './components/main/VideoList.js';
-import React, { useState } from 'react';
-import MediaPlayer from './components/main/MediaPlayer.js';
-import videosData from './data/video-details.json';
-import videoListData from './data/videos.json';
+import UploadPage from './pages/Upload/Upload.js';
+import Home from './components/main/Home.js'; // Import the Home component
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const App = () => {
-  const [selectedVideo, setSelectedVideo] = useState(videosData[0]);
-
-  const handleVideoSelect = (video) => {
-    setSelectedVideo(video);
-  };
-
   return (
-    <Fragment>
-      <header>
-        <NavBar/>
-      </header>
-      <main>
-        <MediaPlayer selectedVideo={selectedVideo}/>
-        <div className='desktop'>
-          <VideoItem selectedVideo={selectedVideo} />
-          <VideoList className='desktop__videolist' videos={videoListData}
-            selectedVideo={selectedVideo}
-            onVideoSelect={handleVideoSelect}/> 
-        </div>
-      </main>
-    </Fragment>
+    <Router>
+      <div>
+        <header>
+          <NavBar />
+        </header>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} /> {/* Use the Home component for the home page */}
+            <Route path="/upload" element={<UploadPage />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 

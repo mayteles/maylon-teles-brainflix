@@ -6,7 +6,7 @@ import commentLogo from '../../assets/Icons/add_comment.svg';
 import profile from '../../assets/Images/Mohan-muruge.jpg';
 
 
-const VideoItem = ({ selectedVideo}) => {
+const MainVideo = ({ selectedVideo}) => {
     if (!selectedVideo || !videosData || videosData.length === 0) return null;
     
     const video = selectedVideo;
@@ -17,7 +17,7 @@ const VideoItem = ({ selectedVideo}) => {
             <div className="video__item-details">
                 <h3 className="video__item-title">{video.title}</h3>
                 <hr className='hr'/>
-                <p className="video__item-info">
+                <div className="video__item-info">
                     <div className='video__item-info-container'>
                         <span className="video__item-info-channel">By {video.channel}</span>
                     </div>
@@ -34,7 +34,7 @@ const VideoItem = ({ selectedVideo}) => {
                         <img src={likes} alt="likes"/>
                         <span className="video__item-info-likes">{video.likes}</span>
                     </div>
-                </p>
+                </div>
                 <hr className='hr'/>
                 <p className="video__item-description">{video.description}</p>
             </div>
@@ -49,9 +49,7 @@ const VideoItem = ({ selectedVideo}) => {
                         <div className='comment__encasing'>
                             <h4 className='comment__heading'>JOIN THE CONVERSATION</h4>
                             <div className='comment__area'>
-                                <textarea name="comment" className='comment__textarea'>
-                                    Add a new comment
-                                </textarea>
+                                <textarea name="comment" className='comment__textarea' defaultValue='Add a new comment'></textarea>
                                 <button type='button' className='comment__btn'>
                                     <span className='comment__btn-imgwrapper'>
                                         <img src={commentLogo} alt='comment'/>
@@ -80,4 +78,4 @@ const VideoItem = ({ selectedVideo}) => {
     );
 };
 
-export default VideoItem;
+export default MainVideo;
