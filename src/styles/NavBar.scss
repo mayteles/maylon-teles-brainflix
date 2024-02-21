@@ -5,11 +5,12 @@
 .navbar {
     display: flex;
     flex-wrap: wrap;
-    padding: 0 16px 16px;
+    padding: 0 16px;
+    border-bottom: 1px solid $Mercury;
     @include tablet {
         justify-content: space-between;
         flex-wrap: nowrap;
-        padding: 0 24px 24px;
+        padding: 0 24px;
     }
     @include desktop {
         padding: 0 48px;
@@ -36,7 +37,7 @@
     }
     &__search-form {
         border: 1px solid $Mercury;
-        width: 82%;
+        width: 85%;
         background-color: $Alabaster;
         height: 36px;
         border-radius: 4px;
@@ -65,9 +66,10 @@
     &__search-form:hover{
         border: 1px solid $BrainFlix-Blue;
     }
-    // wrapper fot profile 
+    // wrapper for profile 
     &__profile-wrapper {
-        margin: 0 0 0 15px;
+        flex-basis: auto;
+        margin-left: auto;
         @include tablet {
             padding: 16px 0;
             align-self: flex-end;
@@ -93,21 +95,30 @@
     }
     // cta button
     &__btn {
-        display: flex;
-        align-items: center;
         @include cta;
+        width: 100%;
+        font-weight: bold;
+        padding-left: 5px;
+        position: relative; 
+        &:before {
+            content: '';
+            background-image: url('../assets/Icons/upload.svg');
+            background-size: cover;
+            width: 24px; 
+            height: 24px;
+            position: absolute;
+            left: 12px; 
+            top: 50%;
+            transform: translateY(-50%);
+        }
         @include tablet {
             @include cta-width;
+            padding-left: 50px;
         }
-        &-text {
-            font-family: 'Avenir-Bold', 'Avenir-Pro-Bold';
-            font-weight: 700;
-            padding: 0 33.4vw;
-            box-sizing: border-box;
-            @include tablet {
-                padding: 0;
-            }
-        } 
+        // for Link in react
+        &-link {
+            text-decoration: none;
+        }
     }
 }
 

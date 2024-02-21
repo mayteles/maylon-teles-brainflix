@@ -1,30 +1,44 @@
 import './App.scss';
-import { Fragment } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+
+// routes
 import NavBar from './components/header/NavBar.js';
-import VideoItem from './components/main/MainVideo.js';
-import VideoList from './components/main/VideoList.js';
-import React, { useState } from 'react';
+import UploadPage from './pages/Upload/Upload.js';
+import Home from './components/main/Home.js';
 
 const App = () => {
+  const [videos, setVideos] = useState([]);
 
-const [selectedVideo, setSelectedVideo] = useState(null);
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const response = await axios.get('https://project-2-api.herokuapp.com/videos?api_key=<your_api_key_here>');
+        setVideos(response.data);
+      } catch (error) {
+        console.error('Error fetching videos:', error);
+      }
+    };
 
-const handleVideoSelect = (video) => {
-  setSelectedVideo(video);
-};
+    fetchVideos();
+  }, []);
 
   return (
-    <Fragment>
-      <header>
-        <NavBar/>
-      </header>
-      <main>
-        <VideoItem/>
-        <VideoList onVideoSelect={handleVideoSelect}> 
-          {selectedVideo && <VideoItem video={selectedVideo} />}
-        </VideoList>
-      </main>
-    </Fragment>
+    <Router>
+      <div>
+        <header>
+          <NavBar />
+        </header>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} /> {/* Use the Home component for the home page */}
+            <Route path="/upload" element={<UploadPage />} />
+            <Route path='/video/:id' element={<Home/>}/>
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 
